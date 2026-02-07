@@ -20,14 +20,13 @@
 <!-- Hero Section -->
 <section class="hero" id="hero">
     <div class="hero-text">
-        <h2>Ahed Ali</h2>
-        <h4>Software Engineer | AI & Automation Developer</h4>
-        <p>
-            AI & Automation Developer with strong experience in Python-based automation, machine learning, computer vision, and cybersecurity tooling.
-        </p>
-        <p>
-            Skilled in designing and integrating AI-driven systems like chatbots, gesture-based control solutions, and multi-module automation platforms.
-        </p>
+        <h1 class="reveal-text" data-text="Ahed Ali"></h1>
+        <h4 class="reveal-text" data-text="Software Engineer | AI & Automation Developer"></h4>
+
+        <p class="reveal-text" data-text="AI & Automation Developer with strong experience in Python-based automation, machine learning, computer vision, and cybersecurity tooling."></p>
+
+        <p class="reveal-text" data-text="Skilled in designing and integrating AI-driven systems like chatbots, gesture-based control solutions, and multi-module automation platforms."></p>
+
         <div class="hero-buttons">
             <a href="#services-skills" class="btn-primary">My Work</a>
             <a href="https://github.com/silverpack01" target="_blank" class="btn-secondary">GitHub</a>
@@ -48,9 +47,20 @@
         <span>JavaScript</span>
         <span>Machine Learning</span>
         <span>AI Automation</span>
+        <span>Computer Vision</span>
         <span>Web Scraping & OSINT</span>
         <span>Cybersecurity</span>
         <span>API Integration</span>
+        <span>Automation Pipelines</span>
+        <span>OCR / Text Processing</span>
+        <span>Voice & Gesture Interfaces</span>
+        <span>Content & SEO Tools</span>
+        <span>Privacy & Security Tools</span>
+        <span>Web Development</span>
+        <span>Database Management</span>
+        <span>Flask</span>
+        <span>Frontend Development</span>
+        <span>Backend Development</span>
         <span>Git</span>
         <span>Firefox Extensions</span>
     </div>
@@ -205,9 +215,39 @@
     <p>© 2026 Alpha. All rights reserved.</p>
 </footer>
 
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+    const elements = document.querySelectorAll(".reveal-text");
+
+    function typeText(el, text, index = 0) {
+        if (index < text.length) {
+            el.innerHTML += text.charAt(index);
+            setTimeout(() => typeText(el, text, index + 1), 55);
+        } else {
+            setTimeout(() => eraseText(el, text.length), 2000);
+        }
+    }
+
+    function eraseText(el, index) {
+        if (index >= 0) {
+            el.innerHTML = el.innerHTML.substring(0, index);
+            setTimeout(() => eraseText(el, index - 1), 30);
+        } else {
+            setTimeout(() => typeText(el, el.dataset.text), 600);
+        }
+    }
+
+    elements.forEach((el, i) => {
+        setTimeout(() => {
+            typeText(el, el.dataset.text);
+        }, i * 800);
+    });
+});
+</script>
+
 <!-- ===== Smooth Scroll + Fade-in JS ===== -->
 <script>
-// Smooth scroll for nav links
+
 document.querySelectorAll('nav a[href^="#"], .btn-primary[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function(e) {
         e.preventDefault();
@@ -239,6 +279,7 @@ function fadeInOnScroll() {
 
 window.addEventListener('scroll', fadeInOnScroll);
 window.addEventListener('load', fadeInOnScroll);
+
 </script>
 
 </body>
