@@ -5,6 +5,7 @@
     <title>Alpha | Portfolio</title>
     <!-- <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}"> -->
     <link rel="stylesheet" href="style.css?v=2">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 </head>
 <body>
@@ -29,7 +30,7 @@
 
         <div class="hero-buttons">
             <a href="#services-skills" class="btn-primary">My Work</a>
-            <a href="https://github.com/silverpack01" target="_blank" class="btn-secondary">GitHub</a>
+            <a href="https://github.com/silverpack01" target="_blank" class="btn">GitHub</a>
         </div>
     </div>
 
@@ -224,7 +225,7 @@ document.addEventListener("DOMContentLoaded", () => {
             el.innerHTML += text.charAt(index);
             setTimeout(() => typeText(el, text, index + 1), 55);
         } else {
-            setTimeout(() => eraseText(el, text.length), 2000);
+            setTimeout(() => eraseText(el, text.length), 5000);
         }
     }
 
