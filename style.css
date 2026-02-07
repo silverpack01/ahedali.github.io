@@ -137,7 +137,7 @@ nav a:hover::after { width: 100%; }
 .skill-list span:hover { background: #3b82f6; color: #fff; }
 
 /* ===== Services / Projects Section ===== */
-.services {
+/* .services {
     padding: 80px 60px;
     display: flex;              
     flex-wrap: wrap;             
@@ -145,7 +145,7 @@ nav a:hover::after { width: 100%; }
     justify-content: flex-start; 
     align-items: flex-start;    
     text-align: left;            
-}
+} */
 
 .service-box {
     flex: 1 1 260px;             /* Minimum 260px, grow if space available */
@@ -210,7 +210,11 @@ footer {
 @media (max-width:900px) {
     header { flex-direction: column; padding:16px 30px; }
     nav a { margin-left: 15px; font-size:15px; }
-    .hero { flex-direction: column; text-align:center; padding:60px 30px; }
+    .hero { flex-direction: column; text-align:center; padding:5px 30px; }
     .hero-image img { width:240px; height:240px; }
-    .about, .skills, .services { padding:50px 30px; }
+    .about, .skills{ padding:0px 20px; 
+    text-align: center;
+    margin-left: 0rem;
+    margin-right: 0rem;}
+
 }
