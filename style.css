@@ -263,7 +263,119 @@ footer {
     0% { transform: translateY(0); }
     50% { transform: translateY(-10px); }
     100% { transform: translateY(0); }
+    
 }
+
+
+/* ===== Contact Section ===== */
+.contact {
+    padding: 80px 60px;
+    text-align: center;
+}
+
+.contact h2 {
+    color: #3b82f6;
+    font-size: 32px;
+}
+
+.contact-sub {
+    color: #c7d2ff;
+    margin-bottom: 40px;
+}
+
+.contact-cards {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+    margin-bottom: 50px;
+}
+
+.contact-card {
+    width: 260px;
+    padding: 30px 20px;
+    border-radius: 16px;
+    background: linear-gradient(145deg, #0c1225, #050816);
+    border: 1px solid #0d1b3d;
+    text-decoration: none;
+    transition: 0.3s ease;
+}
+
+.contact-card .icon {
+    font-size: 38px;
+    margin-bottom: 10px;
+}
+
+.contact-card h3 {
+    font-size: 22px;
+}
+
+.contact-card p {
+    color: #c7d2ff;
+}
+
+/* Card themes */
+.contact-card.insta h3 { color: #f472b6; }
+.contact-card.whatsapp h3 { color: #22c55e; }
+.contact-card.email h3 { color: #60a5fa; }
+
+.contact-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 30px rgba(59,130,246,0.35);
+}
+
+/* ===== Contact Form ===== */
+.contact-form {
+    max-width: 500px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.contact-form input,
+.contact-form textarea {
+    padding: 12px 14px;
+    border-radius: 8px;
+    border: 1px solid #0d1b3d;
+    background: #050816;
+    color: #eaeaea;
+    font-size: 14px;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    outline: none;
+    border-color: #3b82f6;
+}
+
+.contact-form button {
+    padding: 12px;
+    border-radius: 24px;
+    border: none;
+    background: linear-gradient(135deg, #3b82f6, #2563eb);
+    color: #fff;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.contact-form button:hover {
+    box-shadow: 0 12px 28px rgba(59,130,246,0.4);
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 600px) {
+    .contact {
+        padding: 60px 20px;
+    }
+
+    .contact-card {
+        width: 90%;
+    }
+}
+
+
 /* ===== Responsive Layout for <=900px ===== */
 
 @media (max-width: 1350px) {
