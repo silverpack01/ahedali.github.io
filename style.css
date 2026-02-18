@@ -223,7 +223,7 @@ nav a:hover::after { width: 100%; }
 }
 
 .service-box h3 { color: #3b82f6; margin-bottom: 12px; }
-.service-box p { color: #c7d2ff; font-size: 15px; margin-bottom: 15px; }
+.service-box p { color: #c7d2ff; font-size: 15px; margin-bottom: 15px; text-align: start;}
 
 .btn-secondary {
     display: inline-block;
