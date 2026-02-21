@@ -2,332 +2,592 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Alpha | Portfolio</title>
-    <!-- <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}"> -->
-    <link rel="stylesheet" href="style.css?v=2">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+    <title>Alpha | Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@300;400;500;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
-<header>
-    <h1>Alpha</h1>
-    <nav>
-        <a href="#hero">Home</a>
-        <a href="#services-skills">Services & Skills</a>
-        <a href="#contact">Contact</a>
+<div class="scanlines"></div>
+<div class="noise"></div>
+<canvas id="grid-canvas"></canvas>
 
+<header>
+    <div class="logo">
+        <span class="logo-bracket">[</span>ALPHA<span class="logo-bracket">]</span>
+    </div>
+    <nav>
+        <a href="#hero">HOME</a>
+        <a href="#services-skills">PROJECTS</a>
+        <a href="#contact">CONTACT</a>
     </nav>
+    <div class="header-status">
+        <span class="status-dot"></span>
+        <span class="status-text">ONLINE</span>
+    </div>
 </header>
 
-<!-- Hero Section -->
 <section class="hero" id="hero">
     <div class="hero-text">
-        <h1 class="reveal-text" data-text="Ahed Ali"></h1>
-        <h4 class="reveal-text" data-text="Software Engineer | AI & Automation Developer"></h4>
-
-        <p class="reveal-text" data-text="AI & Automation Developer with strong experience in Python-based automation, machine learning, computer vision, and cybersecurity tooling."></p>
-
-        <p class="reveal-text" data-text="Skilled in designing and integrating AI-driven systems like chatbots, gesture-based control solutions, and multi-module automation platforms."></p>
-
+        <h1 class="glitch" data-text="Ahed Ali">Ahed Ali</h1>
+        <h4 class="hero-role">AI &amp; Automation Engeenier</h4>
+        <p>AI &amp; Automation Developer with strong experience in Python-based automation, machine learning, computer vision, and cybersecurity tooling.</p>
+        <p>Skilled in designing and integrating AI-driven systems like chatbots, gesture-based control solutions, and multi-module automation platforms.</p>
         <div class="hero-buttons">
-            <a href="#services-skills" class="btn-primary">My Work</a>
-            <a href="https://github.com/silverpack01" target="_blank" class="btn">GitHub</a>
+            <a href="#services-skills" class="btn-primary">VIEW PROJECTS</a>
+            <a href="https://github.com/silverpack01" target="_blank" class="btn-outline">GITHUB</a>
+        </div>
+    </div>
+    <div class="hero-image">
+        <div class="image-frame">
+            <div class="frame-corner tl"></div>
+            <div class="frame-corner tr"></div>
+            <div class="frame-corner bl"></div>
+            <div class="frame-corner br"></div>
+            <img src="Ahed.jpg" alt="Ahed Ali">
+            <div class="image-scanline"></div>
+        </div>
+        <div class="hero-data-panel">
+            <div class="data-row"><span>NAME</span><span>Ahed Ali</span></div>
+            <div class="data-row"><span>ROLE</span><span>AI Dev</span></div>
+            <div class="data-row"><span>STATUS</span><span class="green">ACTIVE</span></div>
+        </div>
+    </div>
+</section>
+
+<section class="skills" id="services-skills">
+    <div class="section-header">
+        <div class="section-line"></div>
+        <h2><span class="neon-blue">&gt;&gt;</span> SKILL_MATRIX</h2>
+        <div class="section-line"></div>
+    </div>
+
+    <div class="skill-list">
+        <span>Python</span><span>C#</span><span>JavaScript</span>
+        <span>Machine Learning</span><span>AI Automation</span><span>Computer Vision</span>
+        <span>Web Scraping &amp; OSINT</span><span>Cybersecurity</span><span>API Integration</span>
+        <span>Automation Pipelines</span><span>OCR / Text Processing</span><span>Voice &amp; Gesture Interfaces</span>
+        <span>Content &amp; SEO Tools</span><span>Privacy &amp; Security Tools</span><span>Web Development</span>
+        <span>Database Management</span><span>Flask</span><span>Frontend Development</span>
+        <span>Backend Development</span><span>Git</span><span>Firefox Extensions</span>
+    </div>
+
+    <div class="section-header" style="margin-top:70px;">
+        <div class="section-line"></div>
+        <h2><span class="neon-blue">&gt;&gt;</span> PROJECT_DATABASE</h2>
+        <div class="section-line"></div>
+    </div>
+
+    <div class="category-label ai-label">[ AI_PROJECTS ]</div>
+    <div class="project-grid">
+        <div class="service-box tilt-card">
+            <div class="card-glow"></div>
+            <div class="card-tag">AI</div>
+            <img src="https://images.pexels.com/photos/5668473/pexels-photo-5668473.jpeg" alt="Pocket Layer AI">
+            <h3>Pocket Layer</h3>
+            <p>AI desktop assistant for Pakistan traffic laws with intent recognition and context-aware explanations.</p>
+            <a href="https://github.com/silverpack01/Pocket-Layer.git" target="_blank" class="btn-secondary">REPO &rarr;</a>
+        </div>
+        <div class="service-box tilt-card">
+            <div class="card-glow"></div>
+            <div class="card-tag">AI</div>
+            <img src="https://images.pexels.com/photos/3861969/pexels-photo-3861969.jpeg" alt="VISIO">
+            <h3>VISIO - AI Image Generator</h3>
+            <p>Professional AI-powered image generation with Instagram integration using DeepSeek V3.1 and Stable Diffusion XL.</p>
+            <a href="https://github.com/silverpack01/AI-Image-Generator-with-Instagram-Integration.git" target="_blank" class="btn-secondary">REPO &rarr;</a>
+        </div>
+        <div class="service-box tilt-card">
+            <div class="card-glow"></div>
+            <div class="card-tag">AI</div>
+            <img src="https://images.pexels.com/photos/6019019/pexels-photo-6019019.jpeg" alt="Face Recognition">
+            <h3>Face Recognition</h3>
+            <p>AI-based face recognition system for identity verification and real-time analysis using computer vision.</p>
+            <a href="https://github.com/silverpack01/face-recognition.git" target="_blank" class="btn-secondary">REPO &rarr;</a>
+        </div>
+        <div class="service-box tilt-card">
+            <div class="card-glow"></div>
+            <div class="card-tag">AI</div>
+            <img src="https://images.pexels.com/photos/12813050/pexels-photo-12813050.jpeg" alt="AI SEO Tool">
+            <h3>AI Search Engine Optimizer</h3>
+            <p>AI-driven SEO tool that analyzes keywords, content structure, and ranking signals for web optimization.</p>
+            <a href="https://github.com/silverpack01/-Ai-Search-Engine-Optimizer.git" target="_blank" class="btn-secondary">REPO &rarr;</a>
         </div>
     </div>
 
-    <div class="hero-image">
-        <!-- <img src= "{{ url_for('static', filename='Ahed.jpg') }}" alt="Ahed Ali"> -->
-        <img src="Ahed.jpg" alt="Ahed Ali">
+    <div class="category-label auto-label">[ AUTOMATION_PROJECTS ]</div>
+    <div class="project-grid">
+        <div class="service-box tilt-card">
+            <div class="card-glow"></div>
+            <div class="card-tag auto">AUTO</div>
+            <img src="https://images.pexels.com/photos/16027810/pexels-photo-16027810.jpeg" alt="OneForge">
+            <h3>OneForge</h3>
+            <p>All-in-one AI automation platform: voice assistant, gesture control, trading analytics, coding aid, and cybersecurity tools.</p>
+            <a href="https://github.com/silverpack01/OneForge.git" target="_blank" class="btn-secondary">REPO &rarr;</a>
+        </div>
+        <div class="service-box tilt-card">
+            <div class="card-glow"></div>
+            <div class="card-tag auto">AUTO</div>
+            <img src="https://images.pexels.com/photos/46924/pexels-photo-46924.jpeg" alt="WhatsApp AI Bot">
+            <h3>WhatsApp AI Bot</h3>
+            <p>Smart WhatsApp bot for context-aware replies, tone analysis, scheduled responses, and chat automation.</p>
+            <a href="https://github.com/silverpack01/Whatsapp-Ai-Bot.git" target="_blank" class="btn-secondary">REPO &rarr;</a>
+        </div>
+        <div class="service-box tilt-card">
+            <div class="card-glow"></div>
+            <div class="card-tag auto">AUTO</div>
+            <img src="https://images.pexels.com/photos/1181241/pexels-photo-1181241.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Trendify">
+            <h3>Trendify</h3>
+            <p>AI content automation: trend detection, keyword analysis, script generation, and video workflow automation.</p>
+            <a href="https://github.com/silverpack01/Trendify.git" target="_blank" class="btn-secondary">REPO &rarr;</a>
+        </div>
+        <div class="service-box tilt-card">
+            <div class="card-glow"></div>
+            <div class="card-tag auto">AUTO</div>
+            <img src="https://images.pexels.com/photos/1181244/pexels-photo-1181244.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Image Searching">
+            <h3>Image Searching</h3>
+            <p>Computer vision-based image search system for visual matching and OSINT analysis.</p>
+            <a href="https://github.com/silverpack01/Image-Searching.git" target="_blank" class="btn-secondary">REPO &rarr;</a>
+        </div>
+        <div class="service-box tilt-card">
+            <div class="card-glow"></div>
+            <div class="card-tag auto">AUTO</div>
+            <img src="https://images.pexels.com/photos/8386434/pexels-photo-8386434.jpeg" alt="Gesture Control">
+            <h3>Hand Gesture Control</h3>
+            <p>Touchless computer control using hand gesture recognition via computer vision.</p>
+            <a href="https://github.com/silverpack01/hand_gesture.git" target="_blank" class="btn-secondary">REPO &rarr;</a>
+        </div>
+        <div class="service-box tilt-card">
+            <div class="card-glow"></div>
+            <div class="card-tag auto">AUTO</div>
+            <img src="https://images.pexels.com/photos/1181246/pexels-photo-1181246.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Post Automation">
+            <h3>Post Automation</h3>
+            <p>Automates posting and scheduling across platforms for efficient content workflows.</p>
+            <a href="https://github.com/silverpack01/post.git" target="_blank" class="btn-secondary">REPO &rarr;</a>
+        </div>
+    </div>
+
+    <div class="category-label cyber-label">[ CYBERSECURITY_PROJECTS ]</div>
+    <div class="project-grid">
+        <div class="service-box tilt-card">
+            <div class="card-glow"></div>
+            <div class="card-tag cyber">SEC</div>
+            <img src="https://images.pexels.com/photos/8527209/pexels-photo-8527209.jpeg" alt="Captcha Automation">
+            <h3>Captcha Automation</h3>
+            <p>AI-powered captcha recognition using OCR and image preprocessing for automation.</p>
+            <a href="https://github.com/silverpack01/Captcha-Automation.git" target="_blank" class="btn-secondary">REPO &rarr;</a>
+        </div>
+        <div class="service-box tilt-card">
+            <div class="card-glow"></div>
+            <div class="card-tag cyber">SEC</div>
+            <img src="https://images.pexels.com/photos/1181243/pexels-photo-1181243.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Data Scraper">
+            <h3>Advanced Website Crawler</h3>
+            <p>Production-ready web crawler with sentiment analysis, SEO auditing, parallel processing, and broken link detection.</p>
+            <a href="https://github.com/silverpack01/crawler.git" target="_blank" class="btn-secondary">REPO &rarr;</a>
+        </div>
+        <div class="service-box tilt-card">
+            <div class="card-glow"></div>
+            <div class="card-tag cyber">SEC</div>
+            <img src="https://images.pexels.com/photos/1181248/pexels-photo-1181248.jpeg?auto=compress&cs=tinysrgb&w=400" alt="DDoS Study">
+            <h3>DDoS Attack (Educational)</h3>
+            <p>Controlled educational project illustrating DDoS concepts in cybersecurity.</p>
+            <a href="https://github.com/silverpack01/Ddos-Attack.git" target="_blank" class="btn-secondary">REPO &rarr;</a>
+        </div>
+    </div>
+
+    <div class="category-label web-label">[ WEB_&amp;_EXTENSIONS ]</div>
+    <div class="project-grid">
+        <div class="service-box tilt-card">
+            <div class="card-glow"></div>
+            <div class="card-tag web">WEB</div>
+            <img src="https://images.pexels.com/photos/27471476/pexels-photo-27471476.jpeg" alt="Safe History Cleaner">
+            <h3>Safe History Cleaner</h3>
+            <p>Utility to securely clear browser history and cache for privacy protection.</p>
+            <a href="https://github.com/silverpack01/safe-history-cleaner.git" target="_blank" class="btn-secondary">REPO &rarr;</a>
+        </div>
+        <div class="service-box tilt-card">
+            <div class="card-glow"></div>
+            <div class="card-tag web">WEB</div>
+            <img src="https://images.pexels.com/photos/1181250/pexels-photo-1181250.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Tab Store">
+            <h3>Tab Store</h3>
+            <p>Firefox extension for browser tab management and session saving.</p>
+            <a href="https://github.com/silverpack01/Tab-Store.git" target="_blank" class="btn-secondary">REPO &rarr;</a>
+        </div>
+        <div class="service-box tilt-card">
+            <div class="card-glow"></div>
+            <div class="card-tag web">WEB</div>
+            <img src="https://images.pexels.com/photos/1309092/pexels-photo-1309092.jpeg" alt="Animal Website">
+            <h3>Animal Website</h3>
+            <p>Educational site about animals featuring structured info and clean UI.</p>
+            <a href="https://github.com/silverpack01/Animal-website.git" target="_blank" class="btn-secondary">REPO &rarr;</a>
+        </div>
+        <div class="service-box tilt-card">
+            <div class="card-glow"></div>
+            <div class="card-tag web">WEB</div>
+            <img src="https://images.pexels.com/photos/1181252/pexels-photo-1181252.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Desktop Tutorial">
+            <h3>Desktop Tutorial</h3>
+            <p>Interactive desktop tutorial guiding users step by step through system usage.</p>
+            <a href="https://github.com/silverpack01/desktop-tutorial.git" target="_blank" class="btn-secondary">REPO &rarr;</a>
+        </div>
+        <div class="service-box tilt-card">
+            <div class="card-glow"></div>
+            <div class="card-tag web">WEB</div>
+            <img src="https://images.pexels.com/photos/1181253/pexels-photo-1181253.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Portfolio Website">
+            <h3>Portfolio Website</h3>
+            <p>Personal portfolio website showcasing projects, skills, and UI design.</p>
+            <a href="https://github.com/silverpack01/ahedali.github.io.git" target="_blank" class="btn-secondary">REPO &rarr;</a>
+        </div>
     </div>
 </section>
-<!-- Skills + Projects Section -->
-<section class="skills" id="services-skills">
-    <h2>My Skills</h2>
-    <div class="skill-list">
-        <span>Python</span>
-        <span>C#</span>
-        <span>JavaScript</span>
-        <span>Machine Learning</span>
-        <span>AI Automation</span>
-        <span>Computer Vision</span>
-        <span>Web Scraping & OSINT</span>
-        <span>Cybersecurity</span>
-        <span>API Integration</span>
-        <span>Automation Pipelines</span>
-        <span>OCR / Text Processing</span>
-        <span>Voice & Gesture Interfaces</span>
-        <span>Content & SEO Tools</span>
-        <span>Privacy & Security Tools</span>
-        <span>Web Development</span>
-        <span>Database Management</span>
-        <span>Flask</span>
-        <span>Frontend Development</span>
-        <span>Backend Development</span>
-        <span>Git</span>
-        <span>Firefox Extensions</span>
-    </div>
 
-    <h2>Projects & Services</h2>
-
-    <!-- ===== AI Projects ===== -->
-    <h3 style="color:#60a5fa; margin-top:40px;">AI Projects</h3>
-
-    <div class="service-box">
-        <img src="https://images.pexels.com/photos/5668473/pexels-photo-5668473.jpeg" alt="Pocket Layer AI" style="width:100%; border-radius:12px; margin-bottom:12px;">
-        <h3>Pocket Layer</h3>
-        <p>AI desktop assistant for Pakistan traffic laws with intent recognition and context-aware explanations.</p>
-        <a href="https://github.com/silverpack01/Pocket-Layer.git" target="_blank" class="btn-secondary">GitHub Repo</a>
-    </div>
-
-    <div class="service-box">
-        <img src="https://images.pexels.com/photos/3861969/pexels-photo-3861969.jpeg" alt="VISIO AI Image Generator" style="width:100%; border-radius:12px; margin-bottom:12px;">
-        <h3>VISIO - AI Image Generator</h3>
-        <p>Professional AI-powered image generation with Instagram integration. Generate aesthetic images using DeepSeek V3.1 and Stable Diffusion XL with automated posting.</p>
-        <a href="https://github.com/silverpack01/AI-Image-Generator-with-Instagram-Integration.git" target="_blank" class="btn-secondary">GitHub Repo</a>
-    </div>
-
-    <div class="service-box">
-        <img src="https://images.pexels.com/photos/6019019/pexels-photo-6019019.jpeg" alt="Face Recognition" style="width:100%; border-radius:12px; margin-bottom:12px;">
-        <h3>Face Recognition</h3>
-        <p>AI-based face recognition system for identity verification and real-time analysis using computer vision.</p>
-        <a href="https://github.com/silverpack01/face-recognition.git" target="_blank" class="btn-secondary">GitHub Repo</a>
-    </div>
-
-    <div class="service-box">
-        <img src="https://images.pexels.com/photos/12813050/pexels-photo-12813050.jpeg" alt="AI SEO Tool" style="width:100%; border-radius:12px; margin-bottom:12px;">
-        <h3>AI Search Engine Optimizer</h3>
-        <p>AI-driven SEO tool that analyzes keywords, content structure, and ranking signals for web optimization.</p>
-        <a href="https://github.com/silverpack01/-Ai-Search-Engine-Optimizer.git" target="_blank" class="btn-secondary">GitHub Repo</a>
-    </div>
-
-    <!-- ===== Automation Projects ===== -->
-    <h3 style="color:#34d399; margin-top:40px;">Automation Projects</h3>
-
-    <div class="service-box">
-        <img src="https://images.pexels.com/photos/16027810/pexels-photo-16027810.jpeg" alt="OneForge Automation" style="width:100%; border-radius:12px; margin-bottom:12px;">
-        <h3>OneForge</h3>
-        <p>All-in-one AI automation platform: voice assistant, gesture control, trading analytics, coding aid, and cybersecurity tools.</p>
-        <a href="https://github.com/silverpack01/OneForge.git" target="_blank" class="btn-secondary">GitHub Repo</a>
-    </div>
-
-    <div class="service-box">
-        <img src="https://images.pexels.com/photos/46924/pexels-photo-46924.jpeg" alt="WhatsApp AI Bot" style="width:100%; border-radius:12px; margin-bottom:12px;">
-        <h3>WhatsApp AI Bot</h3>
-        <p>Smart WhatsApp bot for context-aware replies, tone analysis, scheduled responses, and chat automation.</p>
-        <a href="https://github.com/silverpack01/Whatsapp-Ai-Bot.git" target="_blank" class="btn-secondary">GitHub Repo</a>
-    </div>
-
-    <div class="service-box">
-        <img src="https://images.pexels.com/photos/1181241/pexels-photo-1181241.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Trendify Content AI" style="width:100%; border-radius:12px; margin-bottom:12px;">
-        <h3>Trendify</h3>
-        <p>AI content automation system: trend detection, keyword analysis, script generation, and video workflow automation.</p>
-        <a href="https://github.com/silverpack01/Trendify.git" target="_blank" class="btn-secondary">GitHub Repo</a>
-    </div>
-
-    <div class="service-box">
-        <img src="https://images.pexels.com/photos/1181244/pexels-photo-1181244.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Image Searching" style="width:100%; border-radius:12px; margin-bottom:12px;">
-        <h3>Image Searching</h3>
-        <p>Computer vision–based image search system for visual matching and OSINT analysis.</p>
-        <a href="https://github.com/silverpack01/Image-Searching.git" target="_blank" class="btn-secondary">GitHub Repo</a>
-    </div>
-
-    <div class="service-box">
-        <img src="https://images.pexels.com/photos/8386434/pexels-photo-8386434.jpeg" alt="Gesture Control" style="width:100%; border-radius:12px; margin-bottom:12px;">
-        <h3>Hand Gesture Control</h3>
-        <p>Touchless system for computer control using hand gesture recognition via computer vision.</p>
-        <a href="https://github.com/silverpack01/hand_gesture.git" target="_blank" class="btn-secondary">GitHub Repo</a>
-    </div>
-
-    <div class="service-box">
-        <img src="https://images.pexels.com/photos/1181246/pexels-photo-1181246.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Post Automation" style="width:100%; border-radius:12px; margin-bottom:12px;">
-        <h3>Post Automation</h3>
-        <p>Automates posting and scheduling across platforms for efficient content workflows.</p>
-        <a href="https://github.com/silverpack01/post.git" target="_blank" class="btn-secondary">GitHub Repo</a>
-    </div>
-
-    <!-- ===== Cybersecurity ===== -->
-    <h3 style="color:#facc15; margin-top:40px;">Cybersecurity Projects</h3>
-
-    <div class="service-box">
-        <img src="https://images.pexels.com/photos/8527209/pexels-photo-8527209.jpeg" alt="Captcha Automation" style="width:100%; border-radius:12px; margin-bottom:12px;">
-        <h3>Captcha Automation</h3>
-        <p>AI-powered captcha recognition using OCR and image preprocessing for automation.</p>
-        <a href="https://github.com/silverpack01/Captcha-Automation.git" target="_blank" class="btn-secondary">GitHub Repo</a>
-    </div>
-
-    <div class="service-box">
-        <img src="https://images.pexels.com/photos/1181243/pexels-photo-1181243.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Data Scraper" style="width:100%; border-radius:12px; margin-bottom:12px;">
-        <h3>Advanced Website Crawler</h3>
-        <p>Production-ready web crawler with sentiment analysis, SEO auditing, parallel processing, and broken link detection. Features smart fetching (requests + Selenium), duplicate content detection, and interactive HTML reports.</p>
-        <a href="https://github.com/silverpack01/crawler.git" target="_blank" class="btn-secondary">GitHub Repo</a>
-    </div>
-
-    <div class="service-box">
-        <img src="https://images.pexels.com/photos/1181248/pexels-photo-1181248.jpeg?auto=compress&cs=tinysrgb&w=400" alt="DDoS Study" style="width:100%; border-radius:12px; margin-bottom:12px;">
-        <h3>DDoS Attack (Educational)</h3>
-        <p>Controlled educational project illustrating DDoS concepts in cybersecurity.</p>
-        <a href="https://github.com/silverpack01/Ddos-Attack.git" target="_blank" class="btn-secondary">GitHub Repo</a>
-    </div>
-
-    <!-- ===== Extensions & Web ===== -->
-    <h3 style="color:#f472b6; margin-top:40px;">Extensions & Web Projects</h3>
-
-    <div class="service-box">
-        <img src="https://images.pexels.com/photos/27471476/pexels-photo-27471476.jpeg" alt="Safe History Cleaner" style="width:100%; border-radius:12px; margin-bottom:12px;">
-        <h3>Safe History Cleaner</h3>
-        <p>Utility to securely clear browser history and cache for privacy protection.</p>
-        <a href="https://github.com/silverpack01/safe-history-cleaner.git" target="_blank" class="btn-secondary">GitHub Repo</a>
-    </div>
-
-    <div class="service-box">
-        <img src="https://images.pexels.com/photos/1181250/pexels-photo-1181250.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Tab Store Extension" style="width:100%; border-radius:12px; margin-bottom:12px;">
-        <h3>Tab Store</h3>
-        <p>Firefox extension for browser tab management and session saving.</p>
-        <a href="https://github.com/silverpack01/Tab-Store.git" target="_blank" class="btn-secondary">GitHub Repo</a>
-    </div>
-
-    <div class="service-box">
-        <img src="https://images.pexels.com/photos/1309092/pexels-photo-1309092.jpeg" alt="Animal Website" style="width:100%; border-radius:12px; margin-bottom:12px;">
-        <h3>Animal Website</h3>
-        <p>Educational site about animals featuring structured info and clean UI.</p>
-        <a href="https://github.com/silverpack01/Animal-website.git" target="_blank" class="btn-secondary">GitHub Repo</a>
-    </div>
-
-    <div class="service-box">
-        <img src="https://images.pexels.com/photos/1181252/pexels-photo-1181252.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Desktop Tutorial" style="width:100%; border-radius:12px; margin-bottom:12px;">
-        <h3>Desktop Tutorial</h3>
-        <p>Interactive desktop tutorial guiding users step by step through system usage.</p>
-        <a href="https://github.com/silverpack01/desktop-tutorial.git" target="_blank" class="btn-secondary">GitHub Repo</a>
-    </div>
-
-    <div class="service-box">
-        <img src="https://images.pexels.com/photos/1181253/pexels-photo-1181253.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Portfolio Website" style="width:100%; border-radius:12px; margin-bottom:12px;">
-        <h3>Portfolio Website</h3>
-        <p>Personal portfolio website showcasing projects, skills, and UI design.</p>
-        <a href="https://github.com/silverpack01/ahedali.github.io.git" target="_blank" class="btn-secondary">GitHub Repo</a>
-    </div>
-
-</section>
-
-<!-- About Section -->
 <section class="about">
-    <h2>About Me</h2>
-    <p>
-        I am a Computer Science undergraduate at the University of Sialkot (2022–2026) with hands-on experience in freelancing and building production-level automation systems.
-    </p>
-    <p>
-        My expertise lies in designing AI-powered tools, integrating APIs, developing automation pipelines, and creating cybersecurity testing utilities with controlled and ethical implementations.
-    </p>
+    <div class="section-header">
+        <div class="section-line"></div>
+        <h2><span class="neon-blue">&gt;&gt;</span> ABOUT.SYS</h2>
+        <div class="section-line"></div>
+    </div>
+    <div class="about-content">
+        <p><span class="neon-blue">// </span>Computer Science undergraduate at the University of Sialkot (2022&ndash;2026) with hands-on experience in freelancing and building production-level automation systems.</p>
+        <p><span class="neon-blue">// </span>Expertise in designing AI-powered tools, integrating APIs, developing automation pipelines, and creating cybersecurity testing utilities with controlled and ethical implementations.</p>
+    </div>
 </section>
 
 <section class="contact" id="contact">
-    <h2>Contact Me</h2>
-    <p class="contact-sub">
-        Let’s connect — social or direct message
-    </p>
+    <div class="section-header">
+        <div class="section-line"></div>
+        <h2><span class="neon-blue">&gt;&gt;</span> ESTABLISH_CONNECTION</h2>
+        <div class="section-line"></div>
+    </div>
+    <p class="contact-sub">// SELECT TRANSMISSION CHANNEL</p>
 
     <div class="contact-cards">
-
         <a href="https://instagram.com/ahed_746" target="_blank" class="contact-card insta">
-            <div class="icon">📸</div>
+            <div class="card-corner tl"></div>
+            <div class="card-corner br"></div>
+            <div class="contact-icon">IG</div>
             <h3>Instagram</h3>
             <p>@ahed_746</p>
         </a>
-
         <a href="https://wa.me/923127194791" target="_blank" class="contact-card whatsapp">
-            <div class="icon">💬</div>
+            <div class="card-corner tl"></div>
+            <div class="card-corner br"></div>
+            <div class="contact-icon">WA</div>
             <h3>WhatsApp</h3>
             <p>0312-7194791</p>
         </a>
-
         <a href="mailto:ahedali.dev@gmail.com" class="contact-card email">
-            <div class="icon">✉️</div>
+            <div class="card-corner tl"></div>
+            <div class="card-corner br"></div>
+            <div class="contact-icon">EM</div>
             <h3>Email</h3>
             <p>ahedali732312@gmail.com</p>
         </a>
-
     </div>
 
-    <!-- Contact Form -->
-    <form class="contact-form">
-        <input type="text" placeholder="Your Name" required>
-        <input type="email" placeholder="Your Email" required>
-        <textarea rows="5" placeholder="Your Message"></textarea>
-        <button type="submit">Send Message</button>
+    <form class="contact-form" onsubmit="handleSubmit(event)">
+        <div class="input-group">
+            <span class="input-prefix">&gt;</span>
+            <input type="text" placeholder="YOUR_NAME" required>
+        </div>
+        <div class="input-group">
+            <span class="input-prefix">&gt;</span>
+            <input type="email" placeholder="YOUR_EMAIL" required>
+        </div>
+        <div class="input-group textarea-group">
+            <span class="input-prefix">&gt;</span>
+            <textarea rows="5" placeholder="YOUR_MESSAGE"></textarea>
+        </div>
+        <button type="submit" class="submit-btn">
+            <span>TRANSMIT MESSAGE</span>
+            <div class="btn-scan"></div>
+        </button>
     </form>
 </section>
 
 <footer>
-    <p>© 2026 Alpha. All rights reserved.</p>
+    <div class="footer-inner">
+        <span class="neon-blue">[</span> &copy; 2026 ALPHA &mdash; ALL RIGHTS RESERVED <span class="neon-blue">]</span>
+    </div>
 </footer>
 
 <script>
-document.addEventListener("DOMContentLoaded", () => {
-    const elements = document.querySelectorAll(".reveal-text");
+// ===== Canvas: Grid + Particles + Light Beams =====
+const canvas = document.getElementById('grid-canvas');
+const ctx = canvas.getContext('2d');
 
-    function typeText(el, text, index = 0) {
-        if (index < text.length) {
-            el.innerHTML += text.charAt(index);
-            setTimeout(() => typeText(el, text, index + 1), 55);
-        } else {
-            setTimeout(() => eraseText(el, text.length), 5000);
+function resizeCanvas() {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+}
+resizeCanvas();
+window.addEventListener('resize', resizeCanvas);
+
+// Particles
+const particles = Array.from({ length: 55 }, () => ({
+    x: Math.random() * window.innerWidth,
+    y: Math.random() * window.innerHeight,
+    vx: (Math.random() - 0.5) * 0.4,
+    vy: (Math.random() - 0.5) * 0.4,
+    r: Math.random() * 1.8 + 0.4,
+    alpha: Math.random() * 0.5 + 0.1,
+    color: Math.random() < 0.6 ? '77,138,255' : Math.random() < 0.5 ? '155,93,229' : '0,212,255'
+}));
+
+// Light beams
+const beams = Array.from({ length: 3 }, (_, i) => ({
+    x: Math.random() * window.innerWidth,
+    y: -200,
+    speed: 0.4 + Math.random() * 0.4,
+    width: 60 + Math.random() * 80,
+    alpha: 0.04 + Math.random() * 0.04,
+    color: i === 0 ? '77,138,255' : i === 1 ? '155,93,229' : '0,212,255'
+}));
+
+function animate() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    // Grid
+    ctx.strokeStyle = 'rgba(100, 120, 255, 0.045)';
+    ctx.lineWidth = 1;
+    const size = 60;
+    for (let x = 0; x <= canvas.width; x += size) {
+        ctx.beginPath(); ctx.moveTo(x, 0); ctx.lineTo(x, canvas.height); ctx.stroke();
+    }
+    for (let y = 0; y <= canvas.height; y += size) {
+        ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(canvas.width, y); ctx.stroke();
+    }
+
+    // Light beams
+    beams.forEach(b => {
+        const grad = ctx.createLinearGradient(b.x - b.width / 2, b.y, b.x + b.width / 2, b.y + canvas.height);
+        grad.addColorStop(0, `rgba(${b.color},0)`);
+        grad.addColorStop(0.2, `rgba(${b.color},${b.alpha})`);
+        grad.addColorStop(0.5, `rgba(${b.color},${b.alpha * 0.6})`);
+        grad.addColorStop(1, `rgba(${b.color},0)`);
+        ctx.fillStyle = grad;
+        ctx.beginPath();
+        ctx.moveTo(b.x - b.width / 2, b.y);
+        ctx.lineTo(b.x + b.width / 2, b.y);
+        ctx.lineTo(b.x + b.width * 0.7, b.y + canvas.height);
+        ctx.lineTo(b.x - b.width * 0.7, b.y + canvas.height);
+        ctx.closePath();
+        ctx.fill();
+        b.y += b.speed;
+        if (b.y > canvas.height + 200) {
+            b.y = -300;
+            b.x = Math.random() * canvas.width;
+        }
+    });
+
+    // Particles
+    particles.forEach(p => {
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(${p.color},${p.alpha})`;
+        ctx.shadowColor = `rgba(${p.color},0.8)`;
+        ctx.shadowBlur = 6;
+        ctx.fill();
+        ctx.shadowBlur = 0;
+        p.x += p.vx;
+        p.y += p.vy;
+        if (p.x < 0) p.x = canvas.width;
+        if (p.x > canvas.width) p.x = 0;
+        if (p.y < 0) p.y = canvas.height;
+        if (p.y > canvas.height) p.y = 0;
+    });
+
+    // Connect nearby particles
+    for (let i = 0; i < particles.length; i++) {
+        for (let j = i + 1; j < particles.length; j++) {
+            const dx = particles[i].x - particles[j].x;
+            const dy = particles[i].y - particles[j].y;
+            const dist = Math.sqrt(dx * dx + dy * dy);
+            if (dist < 100) {
+                ctx.beginPath();
+                ctx.moveTo(particles[i].x, particles[i].y);
+                ctx.lineTo(particles[j].x, particles[j].y);
+                ctx.strokeStyle = `rgba(77,138,255,${0.08 * (1 - dist / 100)})`;
+                ctx.lineWidth = 0.5;
+                ctx.stroke();
+            }
         }
     }
 
-    function eraseText(el, index) {
-        if (index >= 0) {
-            el.innerHTML = el.innerHTML.substring(0, index);
-            setTimeout(() => eraseText(el, index - 1), 30);
-        } else {
-            setTimeout(() => typeText(el, el.dataset.text), 600);
-        }
-    }
+    requestAnimationFrame(animate);
+}
+animate();
 
-    elements.forEach((el, i) => {
-        setTimeout(() => {
-            typeText(el, el.dataset.text);
-        }, i * 800);
-    });
-});
-</script>
+// ===== Looping Typewriter + Simultaneous Glitch =====
+const typeSequence = [
+    { el: document.querySelector('.hero-role'),         text: 'AI & Automation Engeenier',          speed: 55 },
+    { el: document.querySelectorAll('.hero-text p')[0], text: 'AI & Automation Developer with strong experience in Python-based automation, machine learning, computer vision, and cybersecurity tooling.', speed: 18 },
+    { el: document.querySelectorAll('.hero-text p')[1], text: 'Skilled in designing and integrating AI-driven systems like chatbots, gesture-based control solutions, and multi-module automation platforms.', speed: 18 },
+];
 
-<!-- ===== Smooth Scroll + Fade-in JS ===== -->
-<script>
+const glitchEl = document.querySelector('.glitch');
 
-document.querySelectorAll('nav a[href^="#"], .btn-primary[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function(e) {
-        e.preventDefault();
-        const targetID = this.getAttribute('href').substring(1);
-        const targetSection = document.getElementById(targetID);
-        const headerOffset = 80; // sticky header height
-        const elementPosition = targetSection.getBoundingClientRect().top;
-        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+function triggerGlitch() {
+    if (!glitchEl) return;
+    glitchEl.classList.add('glitch-active');
+    setTimeout(() => glitchEl.classList.remove('glitch-active'), 550);
+}
 
-        window.scrollTo({
-            top: offsetPosition,
-            behavior: "smooth"
-        });
-    });
-});
-
-// Fade-in on scroll
-function fadeInOnScroll() {
-    const elements = document.querySelectorAll('.skill-list span, .service-box');
-    const windowBottom = window.innerHeight + window.scrollY;
-
-    elements.forEach(el => {
-        const elementTop = el.getBoundingClientRect().top + window.scrollY;
-        if (windowBottom > elementTop + 50) {
-            el.classList.add('fade-in');
-        }
+function typeEl(el, text, speed) {
+    return new Promise(resolve => {
+        el.textContent = '';
+        el.style.opacity = '1';
+        el.style.borderRight = '2px solid var(--neon-blue)';
+        let i = 0;
+        // Glitch every ~8 chars while typing
+        const interval = setInterval(() => {
+            el.textContent += text.charAt(i);
+            i++;
+            if (i % 8 === 0) triggerGlitch();
+            if (i >= text.length) {
+                clearInterval(interval);
+                setTimeout(() => {
+                    el.style.borderRight = 'none';
+                    resolve();
+                }, 500);
+            }
+        }, speed);
     });
 }
 
-window.addEventListener('scroll', fadeInOnScroll);
-window.addEventListener('load', fadeInOnScroll);
+function eraseEl(el) {
+    return new Promise(resolve => {
+        el.style.borderRight = '2px solid var(--neon-purple)';
+        const interval = setInterval(() => {
+            el.textContent = el.textContent.slice(0, -1);
+            if (Math.random() < 0.15) triggerGlitch();
+            if (el.textContent.length === 0) {
+                clearInterval(interval);
+                el.style.borderRight = 'none';
+                resolve();
+            }
+        }, 14);
+    });
+}
 
+function pause(ms) { return new Promise(r => setTimeout(r, ms)); }
+
+async function runTypewriterLoop() {
+    // Initial delay
+    await pause(800);
+
+    while (true) {
+        // Type each element in sequence
+        for (let i = 0; i < typeSequence.length; i++) {
+            const { el, text, speed } = typeSequence[i];
+            if (!el) continue;
+            await typeEl(el, text, speed);
+            await pause(i === typeSequence.length - 1 ? 3000 : 300);
+        }
+
+        // Erase in reverse
+        for (let i = typeSequence.length - 1; i >= 0; i--) {
+            const { el } = typeSequence[i];
+            if (!el) continue;
+            await eraseEl(el);
+            await pause(120);
+        }
+
+        await pause(600);
+    }
+}
+
+// Clear text before starting
+typeSequence.forEach(t => { if (t.el) { t.el.textContent = ''; t.el.style.opacity = '1'; } });
+runTypewriterLoop();
+
+// ===== Autonomous glitch on name (between typewriter glitches) =====
+function fireAutoGlitch() {
+    triggerGlitch();
+    if (Math.random() < 0.45) {
+        setTimeout(triggerGlitch, 120);
+    }
+    setTimeout(fireAutoGlitch, 1500 + Math.random() * 2500);
+}
+setTimeout(fireAutoGlitch, 2000);
+
+// ===== Hover glitch on EVERYTHING =====
+function applyHoverGlitch(el) {
+    el.addEventListener('mouseenter', () => {
+        el.classList.add('hover-glitch');
+        setTimeout(() => el.classList.remove('hover-glitch'), 380);
+    });
+}
+
+// Apply to nav links, buttons, skill badges, card titles, contact cards, section headings
+document.querySelectorAll(
+    'nav a, .btn-primary, .btn-outline, .btn-secondary, .skill-list span, ' +
+    '.service-box h3, .contact-card, .category-label, .logo, .submit-btn'
+).forEach(applyHoverGlitch);
+
+// ===== Random glitch on project card titles =====
+const cardTitles = Array.from(document.querySelectorAll('.service-box h3'));
+function fireCardGlitch() {
+    if (!cardTitles.length) return;
+    const t = cardTitles[Math.floor(Math.random() * cardTitles.length)];
+    t.classList.add('text-glitch');
+    setTimeout(() => t.classList.remove('text-glitch'), 400);
+    setTimeout(fireCardGlitch, 900 + Math.random() * 1800);
+}
+setTimeout(fireCardGlitch, 3000);
+
+// ===== Scroll fade-in for cards =====
+const cardObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('fade-in');
+            cardObserver.unobserve(entry.target);
+        }
+    });
+}, { threshold: 0.05, rootMargin: '0px 0px -10px 0px' });
+document.querySelectorAll('.service-box, .contact-card').forEach(el => cardObserver.observe(el));
+
+// ===== 3D tilt on project cards =====
+document.querySelectorAll('.tilt-card').forEach(card => {
+    card.addEventListener('mousemove', (e) => {
+        const r = card.getBoundingClientRect();
+        const x = e.clientX - r.left, y = e.clientY - r.top;
+        const cx = r.width / 2, cy = r.height / 2;
+        const rX = ((y - cy) / cy) * -12, rY = ((x - cx) / cx) * 12;
+        card.style.transform = `perspective(700px) rotateX(${rX}deg) rotateY(${rY}deg) scale3d(1.04,1.04,1.04)`;
+        const glow = card.querySelector('.card-glow');
+        if (glow) { glow.style.left = x + 'px'; glow.style.top = y + 'px'; glow.style.opacity = '1'; }
+    });
+    card.addEventListener('mouseleave', () => {
+        card.style.transform = 'perspective(700px) rotateX(0) rotateY(0) scale3d(1,1,1)';
+        const glow = card.querySelector('.card-glow');
+        if (glow) glow.style.opacity = '0';
+    });
+});
+
+// ===== Smooth scroll =====
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', function(e) {
+        const t = document.getElementById(this.getAttribute('href').substring(1));
+        if (!t) return;
+        e.preventDefault();
+        window.scrollTo({ top: t.getBoundingClientRect().top + window.pageYOffset - 80, behavior: 'smooth' });
+    });
+});
+
+// ===== Contact form =====
+function handleSubmit(e) {
+    e.preventDefault();
+    const btn = e.target.querySelector('.submit-btn');
+    btn.querySelector('span').textContent = 'TRANSMITTED_OK';
+    btn.style.borderColor = '#00ff88';
+    btn.style.color = '#00ff88';
+    setTimeout(() => {
+        btn.querySelector('span').textContent = 'TRANSMIT MESSAGE';
+        btn.style.borderColor = '';
+        btn.style.color = '';
+        e.target.reset();
+    }, 3000);
+}
 </script>
-
 </body>
 </html>
