@@ -6,6 +6,8 @@
     <title>Alpha | Portfolio</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script>emailjs.init("b3ILSwxB-UlNreRl8");</script>
 </head>
 <body>
 
@@ -578,15 +580,38 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
 function handleSubmit(e) {
     e.preventDefault();
     const btn = e.target.querySelector('.submit-btn');
-    btn.querySelector('span').textContent = 'TRANSMITTED_OK';
-    btn.style.borderColor = '#00ff88';
-    btn.style.color = '#00ff88';
-    setTimeout(() => {
-        btn.querySelector('span').textContent = 'TRANSMIT MESSAGE';
-        btn.style.borderColor = '';
-        btn.style.color = '';
+    const inputs = e.target.querySelectorAll('input, textarea');
+    btn.querySelector('span').textContent = 'TRANSMITTING...';
+    btn.disabled = true;
+
+    emailjs.send("service_jhs3oeg", "template_9xrr8k8", {
+        from_name:  inputs[0].value,
+        from_email: inputs[1].value,
+        message:    inputs[2].value
+    })
+    .then(() => {
+        btn.querySelector('span').textContent = 'TRANSMITTED_OK';
+        btn.style.borderColor = '#00ff88';
+        btn.style.color = '#00ff88';
         e.target.reset();
-    }, 3000);
+        setTimeout(() => {
+            btn.querySelector('span').textContent = 'TRANSMIT MESSAGE';
+            btn.style.borderColor = '';
+            btn.style.color = '';
+            btn.disabled = false;
+        }, 3000);
+    })
+    .catch(() => {
+        btn.querySelector('span').textContent = 'TRANSMISSION_FAILED';
+        btn.style.borderColor = '#ff4444';
+        btn.style.color = '#ff4444';
+        setTimeout(() => {
+            btn.querySelector('span').textContent = 'TRANSMIT MESSAGE';
+            btn.style.borderColor = '';
+            btn.style.color = '';
+            btn.disabled = false;
+        }, 3000);
+    });
 }
 </script>
 </body>
