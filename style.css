@@ -1,7 +1,6 @@
-/* ===========================
-   Variables
-   =========================== */
-:root {
+   /* Variables */
+
+   :root {
     --bg:           #03040f;
     --bg-card:      #070b1a;
     --bg-card-2:    #0a0f22;
@@ -24,10 +23,9 @@
     --trans:        0.3s ease;
 }
 
-/* ===========================
-   Reset & Base
-   =========================== */
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+   /* Reset & Base */
+
+   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; }
 
 body {
@@ -43,10 +41,9 @@ body {
 img { display: block; max-width: 100%; }
 a { text-decoration: none; }
 
-/* ===========================
-   Background layers
-   =========================== */
-#grid-canvas {
+   /* Background layers */
+
+   #grid-canvas {
     position: fixed;
     top: 0; left: 0;
     width: 100%; height: 100%;
@@ -88,10 +85,9 @@ a { text-decoration: none; }
 /* Keep all page content above bg layers */
 header, section, footer { position: relative; z-index: 2; }
 
-/* ===========================
-   Header
-   =========================== */
-header {
+   /* Header */
+
+   header {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -150,10 +146,9 @@ nav a:hover {
     50%       { opacity: 0.4; }
 }
 
-/* ===========================
-   Hero
-   =========================== */
-.hero {
+   /* Hero */
+
+   .hero {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -173,10 +168,9 @@ nav a:hover {
     opacity: 0.7;
 }
 
-/* ===========================
-   Hero entrance animations
-   =========================== */
-.hero-tag {
+   /* Hero entrance animations */
+
+   .hero-tag {
     font-family: var(--font-mono);
     font-size: 13px;
     color: var(--neon-blue);
@@ -413,9 +407,8 @@ nav a:hover {
 .data-row span:last-child { color: var(--text); }
 .green { color: var(--neon-green) !important; }
 
-/* ===========================
-   Section headers
-   =========================== */
+   /* Section headers */
+
 .section-header {
     display: flex;
     align-items: center;
@@ -440,10 +433,9 @@ nav a:hover {
 
 .neon-blue { color: var(--neon-blue); }
 
-/* ===========================
-   Skills
-   =========================== */
-.skills {
+   /* Skills */
+
+   .skills {
     padding: 80px 80px;
     text-align: center;
 }
@@ -539,9 +531,7 @@ nav a:hover {
 .cyber-label { color: var(--neon-yellow); }
 .web-label   { color: var(--neon-pink); }
 
-/* ===========================
-   Project Grid
-   =========================== */
+   /* Project Grid */
 .project-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
@@ -675,11 +665,9 @@ nav a:hover {
     box-shadow: 0 0 18px rgba(77,138,255,0.5);
 }
 
-/* ===========================
-   About
-   =========================== */
+   /* About */
 .about {
-    padding: 80px 80px;
+    padding: 50px 80px;
     border-top: 1px solid var(--border);
 }
 
@@ -969,7 +957,7 @@ footer {
    =========================== */
 @media (max-width: 1200px) {
     .hero { padding: 60px 40px; }
-    .skills, .about, .contact { padding: 70px 40px; }
+    .skills, .about, .contact { padding: 40px 40px; }
 }
 
 /* ===========================
