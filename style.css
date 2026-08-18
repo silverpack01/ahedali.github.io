@@ -59,17 +59,11 @@ a { text-decoration: none; }
         0deg,
         transparent,
         transparent 2px,
-        rgba(0,0,0,0.12) 2px,
-        rgba(0,0,0,0.12) 4px
+        rgba(0,0,0,0.08) 2px,
+        rgba(0,0,0,0.08) 4px
     );
     pointer-events: none;
     z-index: 1;
-    animation: scanMove 8s linear infinite;
-}
-
-@keyframes scanMove {
-    0%   { background-position: 0 0; }
-    100% { background-position: 0 100px; }
 }
 
 .noise {
@@ -77,9 +71,10 @@ a { text-decoration: none; }
     top: 0; left: 0;
     width: 100%; height: 100%;
     background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E");
-    opacity: 0.025;
+    opacity: 0.015;
     pointer-events: none;
     z-index: 1;
+    will-change: auto;
 }
 
 /* Keep all page content above bg layers */
@@ -285,10 +280,6 @@ nav a:hover {
     min-height: 1.7em;
 }
 
-.hero-text p + p {
-    /* stagger handled by JS */
-}
-
 .hero-buttons {
     display: flex;
     gap: 16px;
@@ -377,8 +368,9 @@ nav a:hover {
     width: 100%;
     height: 12px;
     background: linear-gradient(transparent, rgba(77,138,255,0.15), transparent);
-    animation: scanDown 3s linear infinite;
+    animation: scanDown 6s linear infinite;
     pointer-events: none;
+    will-change: transform;
 }
 
 @keyframes scanDown {
@@ -486,6 +478,20 @@ nav a:hover {
 .skill-list span:nth-child(19) { animation-delay: 0.95s; }
 .skill-list span:nth-child(20) { animation-delay: 1.00s; }
 .skill-list span:nth-child(21) { animation-delay: 1.05s; }
+.skill-list span:nth-child(22) { animation-delay: 1.10s; }
+.skill-list span:nth-child(23) { animation-delay: 1.15s; }
+.skill-list span:nth-child(24) { animation-delay: 1.20s; }
+.skill-list span:nth-child(25) { animation-delay: 1.25s; }
+.skill-list span:nth-child(26) { animation-delay: 1.30s; }
+.skill-list span:nth-child(27) { animation-delay: 1.35s; }
+.skill-list span:nth-child(28) { animation-delay: 1.40s; }
+.skill-list span:nth-child(29) { animation-delay: 1.45s; }
+.skill-list span:nth-child(30) { animation-delay: 1.50s; }
+.skill-list span:nth-child(31) { animation-delay: 1.55s; }
+.skill-list span:nth-child(32) { animation-delay: 1.60s; }
+.skill-list span:nth-child(33) { animation-delay: 1.65s; }
+.skill-list span:nth-child(34) { animation-delay: 1.70s; }
+.skill-list span:nth-child(35) { animation-delay: 1.75s; }
 
 /* Distinct colors per skill badge */
 .skill-list span:nth-child(1)  { color: #4d8aff; border-color: rgba(77,138,255,0.25); }
@@ -509,6 +515,20 @@ nav a:hover {
 .skill-list span:nth-child(19) { color: #4dffcc; border-color: rgba(77,255,204,0.25); }
 .skill-list span:nth-child(20) { color: #ff7b4d; border-color: rgba(255,123,77,0.25); }
 .skill-list span:nth-child(21) { color: #8aff4d; border-color: rgba(138,255,77,0.25); }
+.skill-list span:nth-child(22) { color: #4db8ff; border-color: rgba(77,184,255,0.25); }
+.skill-list span:nth-child(23) { color: #ff4da6; border-color: rgba(255,77,166,0.25); }
+.skill-list span:nth-child(24) { color: #b8ff4d; border-color: rgba(184,255,77,0.25); }
+.skill-list span:nth-child(25) { color: #4d66ff; border-color: rgba(77,102,255,0.25); }
+.skill-list span:nth-child(26) { color: #ff4d4d; border-color: rgba(255,77,77,0.25); }
+.skill-list span:nth-child(27) { color: #4dffff; border-color: rgba(77,255,255,0.25); }
+.skill-list span:nth-child(28) { color: #cc4dff; border-color: rgba(204,77,255,0.25); }
+.skill-list span:nth-child(29) { color: #ffd94d; border-color: rgba(255,217,77,0.25); }
+.skill-list span:nth-child(30) { color: #4dff8a; border-color: rgba(77,255,138,0.25); }
+.skill-list span:nth-child(31) { color: #ff8a4d; border-color: rgba(255,138,77,0.25); }
+.skill-list span:nth-child(32) { color: #4d8aff; border-color: rgba(77,138,255,0.25); }
+.skill-list span:nth-child(33) { color: #ff6b9d; border-color: rgba(255,107,157,0.25); }
+.skill-list span:nth-child(34) { color: #4dffda; border-color: rgba(77,255,218,0.25); }
+.skill-list span:nth-child(35) { color: #ffa64d; border-color: rgba(255,166,77,0.25); }
 
 .skill-list span:hover {
     background: rgba(77,138,255,0.12);
@@ -547,7 +567,7 @@ nav a:hover {
     flex-direction: column;
     opacity: 0;
     transform: translateY(16px);
-    transition: border-color 0.3s ease;
+    transition: border-color 0.3s ease, transform 0.15s ease-out;
     transform-style: preserve-3d;
     will-change: transform;
     overflow: hidden;
@@ -925,7 +945,7 @@ footer {
     color: var(--neon-blue);
     letter-spacing: 4px;
     text-shadow: 0 0 18px rgba(77, 138, 255, 0.7);
-    animation: neonFlicker 6s ease-in-out infinite;
+    animation: neonFlicker 10s ease-in-out infinite;
 }
 
 @keyframes neonFlicker {
@@ -944,7 +964,8 @@ footer {
     position: relative;
     width: 300px;
     height: 370px;
-    animation: floatUpDown 4s ease-in-out infinite;
+    animation: floatUpDown 5s ease-in-out infinite;
+    will-change: transform;
 }
 
 @keyframes floatUpDown {
