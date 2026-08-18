@@ -1,7 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- Google tag (gtag.js) -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alpha | Portfolio</title>
+    <meta name="description" content="Ahed Ali - AI & Full-Stack Software Engineer Portfolio">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@300;400;500;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@300;400;500;700&display=swap" rel="stylesheet"></noscript>
+    <link rel="preload" href="style.css" as="style">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+    <link rel="preconnect" href="https://www.gstatic.com" crossorigin>
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-DB7VDT06XY"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -9,14 +20,6 @@
       gtag('js', new Date());
       gtag('config', 'G-DB7VDT06XY');
     </script>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Alpha | Portfolio</title>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@300;400;500;700&display=swap" rel="stylesheet">
-    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
-    <link rel="preconnect" href="https://www.gstatic.com" crossorigin>
-    <script defer src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 </head>
 <body>
 
@@ -433,23 +436,26 @@ function handleSubmit(e) {
 }
 </script>
 
-<!-- Firebase: load projects from Firestore and inject into grids -->
-<script type="module">
+<!-- Firebase: load projects lazily after page interactive -->
+<script>
+function initFirebase() {
+    const s = document.createElement('script');
+    s.type = 'module';
+    s.textContent = `
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
-import { getFirestore, collection, getDocs, query, orderBy, limit } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+import { getFirestore, collection, getDocs, query, orderBy } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
 const firebaseConfig = {
-    apiKey:            "AIzaSyCJVhjN4M-EDtZ-e5x2PpzLSAl5bUd_pSs",
-    authDomain:        "alpha-portfolio-e0daf.firebaseapp.com",
-    projectId:         "alpha-portfolio-e0daf",
-    storageBucket:     "alpha-portfolio-e0daf.firebasestorage.app",
+    apiKey: "AIzaSyCJVhjN4M-EDtZ-e5x2PpzLSAl5bUd_pSs",
+    authDomain: "alpha-portfolio-e0daf.firebaseapp.com",
+    projectId: "alpha-portfolio-e0daf",
+    storageBucket: "alpha-portfolio-e0daf.firebasestorage.app",
     messagingSenderId: "372148571408",
-    appId:             "1:372148571408:web:2649567f16d2a6d40fa995"
+    appId: "1:372148571408:web:2649567f16d2a6d40fa995"
 };
 
 const app = initializeApp(firebaseConfig);
 const db  = getFirestore(app);
-db._freezeMetadata = undefined;
 
 const tagMap = {
     AI:   { label: 'AI',   cls: '' },
@@ -463,24 +469,18 @@ const fallback = 'https://images.pexels.com/photos/1181244/pexels-photo-1181244.
 function injectCard(p) {
     const grid = document.getElementById('grid-' + p.cat);
     if (!grid) return;
-
     const tag = tagMap[p.cat] || tagMap.AI;
     const box = document.createElement('div');
     box.className = 'service-box tilt-card';
     box.innerHTML =
         '<div class="card-glow"></div>' +
         '<div class="card-tag ' + tag.cls + '">' + tag.label + '</div>' +
-        '<img loading="lazy" decoding="async" width="400" height="155" src="' + (p.img || fallback) + '" alt="' + p.name + '" onerror="this.src=\'' + fallback + '\'">' +
+        '<img loading="lazy" decoding="async" width="400" height="155" src="' + (p.img || fallback) + '" alt="' + p.name + '" onerror="this.src=\\'' + fallback + '\\'">' +
         '<h3>' + p.name + '</h3>' +
         '<p>' + p.desc + '</p>' +
         '<a href="' + (p.repo || '#') + '" target="_blank" rel="noopener" class="btn-secondary">REPO &rarr;</a>';
-
     grid.appendChild(box);
-    observeAndTilt(box);
-    box.querySelector('h3').addEventListener('mouseenter', function() {
-        this.classList.add('hover-glitch');
-        setTimeout(() => this.classList.remove('hover-glitch'), 380);
-    });
+    if (typeof observeAndTilt === 'function') observeAndTilt(box);
 }
 
 try {
@@ -488,6 +488,15 @@ try {
     snap.forEach(d => injectCard({ id: d.id, ...d.data() }));
 } catch (e) {
     console.warn('Firestore load failed:', e.message);
+}
+    `;
+    document.body.appendChild(s);
+}
+
+if ('requestIdleCallback' in window) {
+    requestIdleCallback(initFirebase);
+} else {
+    window.addEventListener('load', initFirebase);
 }
 </script>
 </body>
