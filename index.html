@@ -33,7 +33,7 @@
     </div>
     <nav>
         <a href="#hero">HOME</a>
-        <a href="#services-skills">PROJECTS</a>
+        <a href="projects.html">PROJECTS</a>
         <a href="#contact">CONTACT</a>
     </nav>
     <div class="header-status">
@@ -49,7 +49,7 @@
         <p>AI &amp; Full-Stack Software Engineer experienced in building AI-powered applications, automation systems, real-time web applications, and backend services. Hands-on experience with Python, JavaScript, Next.js, React, Flask, REST APIs, WebSockets, databases, and LLM integrations.</p>
         <!-- <p>Skilled in designing and integrating AI-driven systems like chatbots, gesture-based control solutions, and multi-module automation platforms.</p> -->
         <div class="hero-buttons">
-            <a href="#services-skills" class="btn-primary">VIEW PROJECTS</a>
+            <a href="projects.html" class="btn-primary">VIEW PROJECTS</a>
             <a href="https://github.com/silverpack01" target="_blank" class="btn-outline">GITHUB</a>
         </div>
     </div>
@@ -465,8 +465,13 @@ const tagMap = {
 };
 
 const fallback = 'https://images.pexels.com/photos/1181244/pexels-photo-1181244.jpeg?auto=compress&cs=tinysrgb&w=400';
+const catCounts = { AI: 0, AUTO: 0, SEC: 0, WEB: 0 };
+const MAX_PER_CAT = 4;
 
 function injectCard(p) {
+    if (p.showOnMain === false) return;
+    if ((catCounts[p.cat] || 0) >= MAX_PER_CAT) return;
+    catCounts[p.cat] = (catCounts[p.cat] || 0) + 1;
     const grid = document.getElementById('grid-' + p.cat);
     if (!grid) return;
     const tag = tagMap[p.cat] || tagMap.AI;

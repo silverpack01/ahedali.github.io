@@ -89,7 +89,6 @@ header, section, footer { position: relative; z-index: 2; }
     padding: 0 60px;
     height: var(--header-h);
     background: rgba(3, 4, 15, 0.92);
-    backdrop-filter: blur(16px);
     border-bottom: 1px solid var(--border);
     box-shadow: 0 1px 30px rgba(77, 138, 255, 0.08);
     position: sticky;
@@ -561,14 +560,16 @@ nav a:hover {
 
 .service-box {
     position: relative;
-    background: var(--bg-card);
-    border: 1px solid var(--border);
+    background: rgba(7, 11, 26, 0.5);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(77, 138, 255, 0.12);
     padding: 20px;
     display: flex;
     flex-direction: column;
     opacity: 0;
     transform: translateY(16px);
-    transition: border-color 0.3s ease, transform 0.15s ease-out;
+    transition: border-color 0.3s ease, transform 0.15s ease-out, box-shadow 0.3s ease;
     transform-style: preserve-3d;
     will-change: transform;
     overflow: hidden;

@@ -489,6 +489,85 @@
             border: 1px dashed var(--border);
         }
 
+        .toggle-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 14px;
+        }
+
+        .toggle-label {
+            font-size: 10px;
+            letter-spacing: 1.5px;
+            color: var(--text-dim);
+        }
+
+        .toggle-switch {
+            position: relative;
+            width: 40px;
+            height: 20px;
+            cursor: pointer;
+        }
+
+        .toggle-switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .toggle-slider {
+            position: absolute;
+            inset: 0;
+            background: rgba(3, 4, 15, 0.6);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            transition: background 0.3s, border-color 0.3s;
+        }
+
+        .toggle-slider::before {
+            content: '';
+            position: absolute;
+            top: 2px;
+            left: 2px;
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background: var(--text-dim);
+            transition: transform 0.3s, background 0.3s;
+        }
+
+        .toggle-switch input:checked + .toggle-slider {
+            background: rgba(0, 255, 136, 0.15);
+            border-color: var(--neon-green);
+        }
+
+        .toggle-switch input:checked + .toggle-slider::before {
+            transform: translateX(20px);
+            background: var(--neon-green);
+            box-shadow: 0 0 8px var(--neon-green);
+        }
+
+        .row-featured {
+            font-size: 9px;
+            letter-spacing: 1px;
+            padding: 2px 8px;
+            border: 1px solid rgba(0, 255, 136, 0.4);
+            color: var(--neon-green);
+            cursor: pointer;
+            background: transparent;
+            font-family: var(--font-mono);
+            transition: background 0.2s, color 0.2s;
+        }
+
+        .row-featured:not(.active) {
+            border-color: rgba(90, 114, 170, 0.3);
+            color: var(--text-dim);
+        }
+
+        .row-featured:hover {
+            background: rgba(0, 255, 136, 0.1);
+        }
+
         #confirm-modal {
             position: fixed;
             inset: 0;
@@ -651,6 +730,14 @@
                     <img id="img-preview" src="" alt="preview">
                     <div class="img-status" id="img-status"></div>
                 </div>
+            </div>
+
+            <div class="toggle-row">
+                <span class="toggle-label">SHOW ON MAIN PAGE</span>
+                <label class="toggle-switch">
+                    <input type="checkbox" id="f-showmain">
+                    <span class="toggle-slider"></span>
+                </label>
             </div>
 
             <div class="form-actions">
@@ -820,7 +907,13 @@ function renderList() {
                 onerror="this.src='${fallback}'">
             <div class="row-info">
                 <div class="row-title">${p.name}</div>
-                <div class="row-meta"><span class="row-tag tag-${p.cat}">${p.cat}</span></div>
+                <div class="row-meta">
+                    <span class="row-tag tag-${p.cat}">${p.cat}</span>
+                    <button class="row-featured ${p.showOnMain !== false ? 'active' : ''}"
+                        onclick="toggleMain('${p.id}')">
+                        ${p.showOnMain !== false ? '★ MAIN' : '☆ MAIN'}
+                    </button>
+                </div>
                 <div class="row-desc">${p.desc}</div>
             </div>
             <div class="row-actions">
@@ -830,6 +923,24 @@ function renderList() {
         </div>
     `).join('');
 }
+
+// ===== Quick toggle showOnMain =====
+window.toggleMain = async function(id) {
+    const p = allProjects.find(x => x.id === id);
+    if (!p) return;
+    const newVal = p.showOnMain === false ? true : false;
+    setDbStatus('busy');
+    try {
+        await updateDoc(doc(db, COL, id), { showOnMain: newVal });
+        p.showOnMain = newVal;
+        setDbStatus('ok');
+        renderList();
+        showMsg(p.name + (newVal ? ' → SHOWN ON MAIN' : ' → HIDDEN FROM MAIN'), 'green');
+    } catch (e) {
+        setDbStatus('error');
+        showMsg('TOGGLE FAILED: ' + e.message, 'red');
+    }
+};
 
 // ===== Pexels Parser =====
 window.parsePexels = function(val, force) {
@@ -879,6 +990,7 @@ window.saveProject = async function() {
     const desc = document.getElementById('f-desc').value.trim();
     const repo = document.getElementById('f-repo').value.trim();
     const img  = document.getElementById('f-img').value.trim();
+    const showOnMain = document.getElementById('f-showmain').checked;
 
     if (!name || !desc) { showMsg('NAME and DESCRIPTION are required.', 'red'); return; }
 
@@ -888,13 +1000,13 @@ window.saveProject = async function() {
 
     try {
         if (editingId) {
-            await updateDoc(doc(db, COL, editingId), { name, cat, desc, repo, img });
+            await updateDoc(doc(db, COL, editingId), { name, cat, desc, repo, img, showOnMain });
             const idx = allProjects.findIndex(p => p.id === editingId);
-            if (idx !== -1) allProjects[idx] = { id: editingId, name, cat, desc, repo, img };
+            if (idx !== -1) allProjects[idx] = { id: editingId, name, cat, desc, repo, img, showOnMain };
             showMsg('PROJECT UPDATED', 'green');
         } else {
-            const ref = await addDoc(collection(db, COL), { name, cat, desc, repo, img, added: Date.now() });
-            allProjects.unshift({ id: ref.id, name, cat, desc, repo, img, added: Date.now() });
+            const ref = await addDoc(collection(db, COL), { name, cat, desc, repo, img, showOnMain, added: Date.now() });
+            allProjects.unshift({ id: ref.id, name, cat, desc, repo, img, showOnMain, added: Date.now() });
             showMsg('PROJECT ADDED', 'green');
         }
         setDbStatus('ok');
@@ -917,6 +1029,7 @@ window.editProject = function(id) {
     document.getElementById('f-desc').value = p.desc;
     document.getElementById('f-repo').value = p.repo || '';
     document.getElementById('f-img').value  = p.img  || '';
+    document.getElementById('f-showmain').checked = p.showOnMain !== false;
 
     if (p.img) showPreview(p.img,
         document.getElementById('img-preview-wrap'),
@@ -938,6 +1051,7 @@ window.resetForm = function() {
     editingId = null;
     ['f-name', 'f-desc', 'f-repo', 'f-img'].forEach(id => document.getElementById(id).value = '');
     document.getElementById('f-cat').value               = 'AI';
+    document.getElementById('f-showmain').checked        = false;
     document.getElementById('form-title').textContent    = '>> ADD_PROJECT';
     document.getElementById('form-btn-text').textContent = 'ADD PROJECT';
     document.getElementById('btn-cancel').style.display  = 'none';
